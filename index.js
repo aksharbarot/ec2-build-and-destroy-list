@@ -30,7 +30,7 @@ exports.handler = (event, context, callback) => {
            console.log("instanceId", instanceId);         
            console.log("instanceType", instanceType);
        }
-      ddb = new aws.DynamoDB({params: {TableName: 'Titans-instance-start-state'}});    
+      ddb = new aws.DynamoDB({params: {TableName: 'instance-start-state'}});    
  var itemParams = {Item: {Id: {S: instanceId} ,Region: {S: awsRegion},userName: {S: userName},instanceType: {S: instanceType},eventName: {S: eventName},creationDate: {S: eventTime} }};
  ddb.putItem(itemParams, function(err, data)
 {
@@ -48,7 +48,7 @@ exports.handler = (event, context, callback) => {
            instanceId = instancesSet['items'][k]['instanceId'];
            console.log("instanceId", instanceId);
        }
-      ddb1 = new aws.DynamoDB({params: {TableName: 'Titans-instance-terminate-state'}});    
+      ddb1 = new aws.DynamoDB({params: {TableName: 'instance-terminate-state'}});    
   var itemParams1 = {Item: {Id: {S: instanceId} ,Region: {S: awsRegion},userName: {S: userName},eventName: {S: eventName},creationDate: {S: eventTime} }};    
   ddb1.putItem(itemParams1, function(err, data)
 {
