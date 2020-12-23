@@ -16,3 +16,4 @@ This will help users to find over all deploy and deleted EC2
 7. Now deploy few test EC2 and delete those. EC2 will be populated in DynamoDB tables
 
 
+
